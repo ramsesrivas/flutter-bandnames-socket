@@ -12,8 +12,9 @@ class Band {
  //Creo el factory recibe un jason map
   factory Band.fromMap(Map <String, dynamic> obj)
     =>  Band(
-      id: obj['id'],
-      name: obj['name'],
-      votes: obj['votes']
+      //Se valida para ver si no viene el dato y que no reviente el progrqama
+      id: obj.containsKey('id') ? obj['id']: 'no-id',
+      name: obj.containsKey('name') ? obj['name'] : 'noname',
+      votes:obj.containsKey('votes') ?  obj['votes'] : 0
     );
 }
